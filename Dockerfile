@@ -1,3 +1,3 @@
 FROM nginx:latest
 
-RUN echo "running"
+RUN echo "running version 1"
