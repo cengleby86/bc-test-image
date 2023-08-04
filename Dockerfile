@@ -20,10 +20,14 @@ RUN wget https://bootstrap.pypa.io/get-pip.py && \
     python3.10 get-pip.py
 
 # Install pandas and pyspark
-RUN pip3 install pandas==1.5.3 pyspark==3.4.1
-
-# Copy the jupyter notebook configuration file
-COPY jupyter_notebook_config.py /root/.jupyter/
+RUN pip3 install virtualenv \
+    && virtualenv venv --python python3.10 \
+    && source venv/bin/activate \
+    && pip3 install \
+        pandas==1.5.3 \
+        pyspark==3.4.1 \
+        jupyter \
+        ipykernel
 
 # Expose the jupyter notebook port
 EXPOSE 8888
@@ -31,4 +35,4 @@ EXPOSE 8888
 USER 1001
 
 # Start the jupyter notebook
-CMD ["jupyter", "notebook", "--ip=0.0.0.0", "--allow-root"]
+CMD ["sh", "-c", "jupyter notebook --ip=0.0.0.0 --no-browser"]
