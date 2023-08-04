@@ -20,10 +20,7 @@ RUN wget https://bootstrap.pypa.io/get-pip.py && \
     python3.10 get-pip.py
 
 # Install pandas and pyspark
-RUN pip3 install virtualenv \
-    && virtualenv venv --python python3.10 \
-    && source venv/bin/activate \
-    && pip3 install \
+RUN pip3 install \
         pandas==1.5.3 \
         pyspark==3.4.1 \
         jupyter \
