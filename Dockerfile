@@ -5,7 +5,8 @@ FROM registry.access.redhat.com/ubi9/ubi:latest
 ENV PYTHONUNBUFFERED=1
 
 # Install necessary utilities
-RUN yum -y update && yum install -y gcc openssl-devel bzip2-devel libffi-devel wget make
+# RUN yum -y update && yum install -y gcc openssl-devel bzip2-devel libffi-devel wget make
+RUN yum -y update && yum install -y gcc openssl-devel bzip2-devel libffi-devel wget make zlib-devel
 
 # Install Python 3.10
 RUN wget https://www.python.org/ftp/python/3.10.6/Python-3.10.6.tgz && \
