@@ -8,9 +8,9 @@ ENV PYTHONUNBUFFERED=1
 RUN yum -y update && yum install -y gcc openssl-devel bzip2-devel libffi-devel wget make
 
 # Install Python 3.10
-RUN wget https://www.python.org/ftp/python/3.10.0/Python-3.10.0.tgz && \
-    tar xzf Python-3.10.0.tgz && \
-    cd Python-3.10.0 && \
+RUN wget https://www.python.org/ftp/python/3.10.6/Python-3.10.6.tgz && \
+    tar xzf Python-3.10.6.tgz && \
+    cd Python-3.10.6 && \
     ./configure --enable-optimizations && \
     make altinstall
 
