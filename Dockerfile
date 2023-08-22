@@ -33,4 +33,3 @@ USER 1001
 
 # Start the jupyter notebook
 CMD ["sh", "-c", "jupyter notebook --ip=0.0.0.0 --no-browser"]
-
